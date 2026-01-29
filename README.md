@@ -1,5 +1,5 @@
 # Supervised Learning Notes
-Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning
+Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning.
 
 ## Requirements
 - python3
