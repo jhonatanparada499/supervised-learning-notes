@@ -11,5 +11,5 @@ Scikit-learn is an open source machine learning library that supports supervised
 source sklearn-env/bin/activate  # activate
 ```
 
-Source for more detailed installation steps: (Click here)[https://scikit-learn.org/stable/install.html#installation-instructions]
+Source for more detailed installation steps: [Click here](https://scikit-learn.org/stable/install.html#installation-instructions)
 
