@@ -5,7 +5,7 @@ Scikit-learn is an open source machine learning library that supports supervised
 ## Background knowledge
 (Done) [Google Introduction to Machine Learning](https://developers.google.com/machine-learning/intro-to-ml)
 
-(Topic: Logistic regression/sigmoid function) [Google ML Concepts](https://developers.google.com/machine-learning/crash-course/linear-regression)
+(Topic: Logistic regression/Loss and regularization) [Google ML Concepts](https://developers.google.com/machine-learning/crash-course/linear-regression)
 
 (Done) [linear_regression_taxi.ipynb](https://colab.research.google.com/github/google/eng-edu/blob/main/ml/cc/exercises/linear_regression_taxi.ipynb#scrollTo=pkuQNjgoAKYt)
 (Topic: 1.1. Linear Models) [Scikit Learn](https://scikit-learn.org/stable/modules/linear_model.html)
