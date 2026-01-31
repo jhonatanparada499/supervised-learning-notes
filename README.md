@@ -7,11 +7,13 @@ Scikit-learn is an open source machine learning library that supports supervised
 
 (Classification: Programming exercise) [Google ML Concepts](https://developers.google.com/machine-learning/crash-course/linear-regression)
 
+(Topic: 1.1. Linear Models) [Scikit Learn](https://scikit-learn.org/stable/modules/linear_model.html)
+
+## Google Colab Links
 (Done) [linear_regression_taxi.ipynb](https://colab.research.google.com/github/google/eng-edu/blob/main/ml/cc/exercises/linear_regression_taxi.ipynb#scrollTo=pkuQNjgoAKYt)
 
 (Task 2: Visualize Samples in 3d) [binary classification rice.ipynb](https://colab.research.google.com/github/google/eng-edu/blob/main/ml/cc/exercises/binary_classification_rice.ipynb#scrollTo=qvpUsZF1LDWM)
 
-(Topic: 1.1. Linear Models) [Scikit Learn](https://scikit-learn.org/stable/modules/linear_model.html)
 
 ## Requirements
 - python3
