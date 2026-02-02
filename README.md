@@ -12,7 +12,7 @@ Scikit-learn is an open source machine learning library that supports supervised
 ## Google Colab Links
 (Done) [linear_regression_taxi.ipynb](https://colab.research.google.com/github/google/eng-edu/blob/main/ml/cc/exercises/linear_regression_taxi.ipynb#scrollTo=pkuQNjgoAKYt)
 
-(Done) [binary_classification_rice.ipynb](https://colab.research.google.com/github/google/eng-edu/blob/main/ml/cc/exercises/binary_classification_rice.ipynb#scrollTo=qvpUsZF1LDWM)
+(Working with numerical data) [binary_classification_rice.ipynb](https://colab.research.google.com/github/google/eng-edu/blob/main/ml/cc/exercises/binary_classification_rice.ipynb#scrollTo=qvpUsZF1LDWM)
 
 
 ## Requirements
