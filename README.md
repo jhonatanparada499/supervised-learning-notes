@@ -5,7 +5,7 @@ Scikit-learn is an open source machine learning library that supports supervised
 ## Background knowledge
 (Done) [Google Introduction to Machine Learning](https://developers.google.com/machine-learning/intro-to-ml)
 
-(Data: Working with numerical data) [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/linear-regression)
+(Data: How a model ingests data using feature vectors) [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/linear-regression)
 
 (Topic: 1.1. Linear Models) [Scikit Learn](https://scikit-learn.org/stable/modules/linear_model.html)
 
