@@ -3,6 +3,8 @@
 Scikit-learn is an open source machine learning library that supports supervised and unsupervised learning.
 
 ## Background knowledge
+(What is Jupyter?)[Jupyter](https://docs.jupyter.org/en/latest/what_is_jupyter.html)
+
 (Done) [Google Introduction to Machine Learning](https://developers.google.com/machine-learning/intro-to-ml)
 
 (Neural networks) [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/linear-regression)
