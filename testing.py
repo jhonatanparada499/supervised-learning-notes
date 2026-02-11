@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Standard scientific Python imports
-import matplotlib.pyplot as plt
-# from matplotlib.pyplot import imread
 
 # Import datasets, classifiers and performance metrics
 from sklearn import datasets, metrics, svm
 from sklearn.model_selection import train_test_split
 
 # Source: phttps://medium.com/@sreuniversity/unlocking-image-classification-with-scikit-learn-a-journey-into-computer-vision-af2cdc881ad
-import os
+import os  # used later to process thousends of images
 from skimage.io import imread
+from skimage.color import rgb2gray
 from skimage.transform import resize
+import numpy as np
 
 digits = datasets.load_digits()
 print(digits.images[0])
@@ -26,9 +26,17 @@ print()
 
 IMG_PATH = "Zero_full (1).jpg"
 img = imread(IMG_PATH)
-img_resize = resize(img, (8, 8))
+gray_img = rgb2gray(img)
+resized_img = resize(gray_img, (8, 8), anti_aliasing=True)
+print(resized_img)
 
-print(img)
+# img = resize(img, (8, 8))
+# # img_arr = np.array(img)
+# # img_arr = 16 - (img_arr / 16.0)
+# flat_data = img.flatten()
+# flat_data = np.clip(flat_data, 0, 16)
+
+# print(flat_data)
 
 #
 # # Create a classifier: a support vector classifier
