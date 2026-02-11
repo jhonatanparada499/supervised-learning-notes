@@ -14,29 +14,38 @@ from skimage.color import rgb2gray
 from skimage.transform import resize
 import numpy as np
 
-digits = datasets.load_digits()
-print(digits.images[0])
-print()
+PATH = "archive/"
 
-# # flatten the images
-n_samples = len(digits.images)
-data = digits.images.reshape((n_samples, -1))
+# production
+# categories = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+# testing
+categories = ["0", "1"]
+
+data = []
+labels = []
+
+# Iterates through every directory in archive/
+for index, category in enumerate(categories):
+    for file in os.listdir(os.path.join(PATH, category)):
+        img_path = os.path.join(PATH, category, file)
+        img = imread(img_path)
+        gray_img = rgb2gray(img)
+        img_resize = resize(gray_img, (8, 8), anti_aliasing=True)
+
+        # Scaling pixel values inside img array
+        img_resize = img_resize / np.max(img_resize)
+        img_resize = 16 - (img_resize * 16)  # assigns pixels a value btw 0 - 16
+        img_resize = np.round(img_resize, 0)  # 0 means the number of decimals
+
+        # Populate Data(after flattening) and Label values
+        data.append(img_resize.flatten())
+
+        # Task: get
+        labels.append(index)
+
 print(data[0])
-print()
-
-IMG_PATH = "Zero_full (1).jpg"
-img = imread(IMG_PATH)
-gray_img = rgb2gray(img)
-resized_img = resize(gray_img, (8, 8), anti_aliasing=True)
-
-# Scaling values inside the img array
-resized_img = resized_img / np.max(
-    resized_img
-)  # calcs pixel intensity relative to higher one in the img
-resized_img = 16 - (resized_img * 16)  # assigns pixels a value btw 0 - 16
-resized_img = np.round(resized_img, 0)  # 0 means the number of decimals
-
-print(resized_img)
+print(labels)
 
 # img = resize(img, (8, 8))
 # # img_arr = np.array(img)
