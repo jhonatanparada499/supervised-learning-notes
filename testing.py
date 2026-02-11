@@ -28,6 +28,14 @@ IMG_PATH = "Zero_full (1).jpg"
 img = imread(IMG_PATH)
 gray_img = rgb2gray(img)
 resized_img = resize(gray_img, (8, 8), anti_aliasing=True)
+
+# Scaling values inside the img array
+resized_img = resized_img / np.max(
+    resized_img
+)  # calcs pixel intensity relative to higher one in the img
+resized_img = 16 - (resized_img * 16)  # assigns pixels a value btw 0 - 16
+resized_img = np.round(resized_img, 0)  # 0 means the number of decimals
+
 print(resized_img)
 
 # img = resize(img, (8, 8))
