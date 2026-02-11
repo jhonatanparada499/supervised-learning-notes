@@ -45,7 +45,9 @@ for index, category in enumerate(categories):
         labels.append(index)
 
 print(data[0])
-print(labels)
+print()
+print(datasets.load_digits().images[0])
+# print(labels)
 
 # img = resize(img, (8, 8))
 # # img_arr = np.array(img)
