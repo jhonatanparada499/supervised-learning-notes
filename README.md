@@ -63,7 +63,6 @@ weighted avg       0.61      0.61      0.61     10778
 
 gamma = 0.01
 ```
-```
 Classification report for classifier SVC(gamma=0.01):
               precision    recall  f1-score   support
 
