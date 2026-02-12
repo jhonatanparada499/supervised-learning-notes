@@ -42,6 +42,15 @@ Dataset: [21,600 Handwritten Digits 0-9 from Kaggle](https://www.kaggle.com/data
 
 Performance Metrics Comparison after Modifying Gamma Hyperparam of the SVM:
 
+Data Normalization Technique #1:
+
+```
+Scaling pixel values inside img array                                    
+img_resize = img_resize / np.max(img_resize)                             
+img_resize = 16 - (img_resize * 16)
+img_resize = np.round(img_resize, 0)  # 0 means the number of decimals to round
+```
+
 gamma = 0.001
 ```
 Classification report for classifier SVC(gamma=0.001):
@@ -82,5 +91,46 @@ Classification report for classifier SVC(gamma=0.01):
     accuracy                           0.81     10778
    macro avg       0.81      0.81      0.81     10778
 weighted avg       0.82      0.81      0.81     10778
+```
+
+
+Observations for Data Normalization Technique #1: Bad. The value of the pixels are too low (between 0 - 6). At this point, the model is not able to correctly predict images from the scikit-learn dataset. 
+
+
+Data Normalization Technique #2:
+
+```
+```
+inverted_img = 1.0 - resized_img
+final_img = inverted_img * 16
+
+```
+if inverted_img.max() > 0:
+    final_img = (inverted_img / inverted_img.max()) * 16
+else:
+    final_img = inverted_img
+final_img = np.round(final_img, 0) # 0 means the number of decimals
+```
+
+Observations for Data Normalization Technique #2: Improvement. Precision and Recalled went up by 25% (86% total compared to 61%) on Kaggle dataset, and makes good predictions on Scikit-learn digits.
+
+```
+Classification report for classifier SVC(gamma=0.001):
+              precision    recall  f1-score   support
+
+           0       0.92      0.92      0.92      1138
+           1       0.85      0.94      0.89      1126
+           2       0.90      0.89      0.90      1101
+           3       0.80      0.83      0.81      1092
+           4       0.81      0.83      0.82      1112
+           5       0.90      0.82      0.85      1067
+           6       0.82      0.91      0.86      1015
+           7       0.87      0.89      0.88      1074
+           8       0.83      0.74      0.78      1024
+           9       0.86      0.77      0.81      1029
+
+    accuracy                           0.86     10778
+   macro avg       0.86      0.85      0.85     10778
+weighted avg       0.86      0.86      0.85     10778
 ```
 ```
