@@ -43,6 +43,7 @@ Dataset: [21,600 Handwritten Digits 0-9 from Kaggle](https://www.kaggle.com/data
 Performance Metrics Comparison after Modifying Gamma Hyperparam of the SVM:
 
 gamma = 0.001
+```
 Classification report for classifier SVC(gamma=0.001):
               precision    recall  f1-score   support
 
@@ -60,6 +61,7 @@ Classification report for classifier SVC(gamma=0.001):
     accuracy                           0.61     10778
    macro avg       0.61      0.61      0.60     10778
 weighted avg       0.61      0.61      0.61     10778
+```
 
 gamma = 0.01
 ```
