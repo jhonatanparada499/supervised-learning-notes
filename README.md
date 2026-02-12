@@ -110,7 +110,7 @@ else:
 final_img = np.round(final_img, 0) # 0 means the number of decimals
 ```
 
-Observations for Data Normalization Technique #2: Improvement. Precision and Recalled went up by 25% (86% total compared to 61%) on Kaggle dataset, and makes good predictions on Scikit-learn digits.
+Observations for Data Normalization Technique #2: Improvement. Precision and Recalled went up by 25% (86% total compared to 61%) on Kaggle dataset, and makes good predictions on Scikit-learn digits. In Scikit-learn digits dataset, it achieved a precision avg of 83% and recall of 79%
 
 ```
 Classification report for classifier SVC(gamma=0.001):
