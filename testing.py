@@ -2,27 +2,30 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Standard scientific Python imports
+import matplotlib.pyplot as plt
 
 # Import datasets, classifiers and performance metrics
-from sklearn import datasets, metrics, svm
+from sklearn import metrics, svm
 from sklearn.model_selection import train_test_split
 
-# Source: phttps://medium.com/@sreuniversity/unlocking-image-classification-with-scikit-learn-a-journey-into-computer-vision-af2cdc881ad
-import os  # used later to process thousends of images
+# Import image processing library 2026-02-10
 from skimage.io import imread
 from skimage.color import rgb2gray
 from skimage.transform import resize
 import numpy as np
 
+# Import os to handle local files
+import os
+
 PATH = "archive/"
 
 # production
-# categories = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+categories = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 # testing
-categories = ["0", "1"]
+# categories = ["0", "1"]
 
-data = []
+images = []
 labels = []
 
 # Iterates through every directory in archive/
@@ -39,35 +42,39 @@ for index, category in enumerate(categories):
         img_resize = np.round(img_resize, 0)  # 0 means the number of decimals
 
         # Populate Data(after flattening) and Label values
-        data.append(img_resize.flatten())
+        images.append(img_resize)
 
         # Task: get
         labels.append(index)
 
-print(data[0])
-print()
-print(datasets.load_digits().images[0])
-# print(labels)
+# print(images[0])
+# print()
+# print(labels[0])
+#
 
-# img = resize(img, (8, 8))
-# # img_arr = np.array(img)
-# # img_arr = 16 - (img_arr / 16.0)
-# flat_data = img.flatten()
-# flat_data = np.clip(flat_data, 0, 16)
+# flatten the images
+n_samples = len(images)
+# data = images.reshape((n_samples, -1)) # returns error bc reshape is not a memeber of built-in list
+data = np.array([img.ravel() for img in images])
 
-# print(flat_data)
+# Create a classifier: a support vector classifier
+clf = svm.SVC(gamma=0.01)
 
-#
-# # Create a classifier: a support vector classifier
-# clf = svm.SVC(gamma=0.001)
-#
-# # Split data into 50% train and 50% test subsets
-# X_train, X_test, y_train, y_test = train_test_split(
-#     data, digits.target, test_size=0.5, shuffle=False
-# )
-#
-# # Learn the digits on the train subset
-# clf.fit(X_train, y_train)
-#
-# # Predict the value of the digit on the test subset
-# predicted = clf.predict(X_test)
+# Split data into 50% train and 50% test subsets
+X_train, X_test, y_train, y_test = train_test_split(
+    data,
+    labels,
+    test_size=0.5,
+    shuffle=True,  # Originally was False
+)
+
+# Learn the digits on the train subset
+clf.fit(X_train, y_train)
+
+# Predict the value of the digit on the test subset
+predicted = clf.predict(X_test)
+
+print(
+    f"Classification report for classifier {clf}:\n"
+    f"{metrics.classification_report(y_test, predicted)}\n"
+)
