@@ -100,11 +100,9 @@ Observations for Data Normalization Technique #1: Bad. The value of the pixels a
 Data Normalization Technique #2:
 
 ```
-```
 inverted_img = 1.0 - resized_img
 final_img = inverted_img * 16
 
-```
 if inverted_img.max() > 0:
     final_img = (inverted_img / inverted_img.max()) * 16
 else:
