@@ -17,6 +17,7 @@ import numpy as np
 # Import os to handle local files
 import os
 
+
 PATH = "archive/"
 
 # production
@@ -36,6 +37,7 @@ for index, category in enumerate(categories):
         gray_img = rgb2gray(img)
         resized_img = resize(gray_img, (8, 8), anti_aliasing=True)
 
+        # Apply Data Transformation
         inverted_img = 1.0 - resized_img
         final_img = inverted_img * 16
 
@@ -51,29 +53,18 @@ for index, category in enumerate(categories):
         # Task: get
         labels.append(index)
 
-        # Scaling pixel values inside img array
-        # img_resize = img_resize / np.max(img_resize)
-        # img_resize = 16 - (img_resize * 16)  # assigns pixels a value btw 0 - 16
-        # img_resize = np.round(img_resize, 0)  # 0 means the number of decimals
-        #
-        # # Populate Data(after flattening) and Label values
-        # images.append(img_resize)
-        #
-        # # Task: get
-        # labels.append(index)
-
 # print(images[0])
 # print()
 # print(labels[0])
 #
-
+#
 # flatten the images
 n_samples = len(images)
 # data = images.reshape((n_samples, -1)) # returns error bc reshape is not a memeber of built-in list
 data = np.array([img.ravel() for img in images])
 
 # Create a classifier: a support vector classifier
-clf = svm.SVC(gamma=0.01)
+clf = svm.SVC(gamma=0.001)
 
 # Split data into 50% train and 50% test subsets
 X_train, X_test, y_train, y_test = train_test_split(
@@ -89,41 +80,27 @@ clf.fit(X_train, y_train)
 # Predict the value of the digit on the test subset
 predicted = clf.predict(X_test)
 
-print(
-    f"Classification report for 50% of Kaggle dataset"
-    f"{metrics.classification_report(y_test, predicted)}\n"
-)
-
-# In This section my model trained with a Kaggle digits dataset
-# makes predictions on Scikit-learn digits dataset.
 
 digits = datasets.load_digits()
 
-print(digits.images[0])
 n_samples = len(digits.images)
-# data = digits.images.reshape((n_samples, -1))
-# Split data into 50% train and 50% test subsets
-# X_train2, X_test2, y_train2, y_test2 = train_test_split(
-#     data,
-#     digits.target,
-#     test_size=0.5,
-#     shuffle=False,
-# )
+data2 = digits.images.reshape((n_samples, -1))
 
-sample_index = 0
-single_sample = digits.data.reshape(n_samples, -1)[0]
+X_train2, X_test2, y_train2, y_test2 = train_test_split(
+    data2,
+    digits.target,
+    test_size=0.5,
+    shuffle=False,
+)
 
-print("sample from scikit learn")
-print(single_sample)
-print("sample from custom")
-print(data[0])
+predicted2 = clf.predict(X_test2)
 
-# Predict the value of the digit on the test subset
-predicted2 = clf.predict([single_sample])
+print(
+    f"Classification report for Kaggle dataset:\n"
+    f"{metrics.classification_report(y_test, predicted)}\n"
+)
 
-print(predicted2)
-
-# print(
-#     f"Classification report for 50% of Scikit-learn dataset"
-#     f"{metrics.classification_report(y_test2, predicted2)}\n"
-# )
+print(
+    f"Classification report for Scikit-learn dataset:\n"
+    f"{metrics.classification_report(y_test2, predicted2)}\n"
+)
