@@ -62,6 +62,8 @@ Classification report for classifier SVC(gamma=0.001):
 weighted avg       0.61      0.61      0.61     10778
 
 gamma = 0.01
+```
+```
 Classification report for classifier SVC(gamma=0.01):
               precision    recall  f1-score   support
 
@@ -79,3 +81,5 @@ Classification report for classifier SVC(gamma=0.01):
     accuracy                           0.81     10778
    macro avg       0.81      0.81      0.81     10778
 weighted avg       0.82      0.81      0.81     10778
+```
+```
