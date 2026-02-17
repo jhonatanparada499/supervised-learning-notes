@@ -131,4 +131,11 @@ Classification report for classifier SVC(gamma=0.001):
    macro avg       0.86      0.85      0.85     10778
 weighted avg       0.86      0.86      0.85     10778
 ```
-```
+
+### Recognizing Handwritten alphabet
+
+Dataset: [Alphabets Dataset (300x300, 798K files)](https://www.kaggle.com/datasets/sankalpsrivastava26/capital-alphabets-28x28/data)
+
+[LabelEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html): "It can also be used to transform non-numerical labels (as long as they are hashable and comparable) to numerical labels."
+
+I only used the first 1600 images from each category.
